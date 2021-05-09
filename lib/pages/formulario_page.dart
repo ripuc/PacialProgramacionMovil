@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class InputPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -138,7 +139,7 @@ class _ContentState extends State<Content> {
               ),
             ),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
           Text(
             '  Sex',
             style: TextStyle(
@@ -149,7 +150,7 @@ class _ContentState extends State<Content> {
           SizedBox(height: 15),
           Row(
             children: [
-              Text('Male'),
+              Text('  Male'),
               Container(
                 child: Switch(
                   value: false,
@@ -169,30 +170,32 @@ class _ContentState extends State<Content> {
               ),
             ],
           ),
+          SizedBox(height: 15),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                height: 50,
-                width: (size.height) / 2,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'save',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
+              Expanded(
+                child: Container(
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'save',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color.fromRGBO(195, 35, 97, 1),
+                            Color.fromRGBO(123, 31, 161, 1),
+                          ])),
                 ),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color.fromRGBO(195, 35, 97, 1),
-                          Color.fromRGBO(123, 31, 161, 1),
-                        ])),
               ),
             ],
           ),
